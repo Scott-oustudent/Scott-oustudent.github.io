@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Galactic Archives Hackathon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a18; /* A deep space blue */
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill="%231a1a2e" fill-opacity="0.4"%3E%3Ccircle cx="50" cy="50" r="1"/%3E%3Ccircle cx="10" cy="10" r="1"/%3E%3Ccircle cx="90" cy="90" r="1"/%3E%3Ccircle cx="10" cy="90" r="1"/%3E%3Ccircle cx="90" cy="10" r="1"/%3E%3Ccircle cx="30" cy="70" r="1"/%3E%3Ccircle cx="70" cy="30" r="1"/%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3Ccircle cx="70" cy="70" r="1"/%3E%3Ccircle cx="50" cy="10" r="1"/%3E%3Ccircle cx="10" cy="50" r="1"/%3E%3Ccircle cx="90" cy="50" r="1"/%3E%3Ccircle cx="50" cy="90" r="1"/%3E%3C/g%3E%3C/svg%3E');
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .glass-card {
+            background: rgba(20, 18, 38, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(129, 140, 248, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 8px rgba(167, 139, 250, 0.6), 0 0 12px rgba(129, 140, 248, 0.4);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #818cf8, #a78bfa);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(167, 139, 250, 0.7);
+        }
+        .btn-secondary {
+            background-color: rgba(49, 46, 129, 0.5);
+            border: 1px solid #6366f1;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(49, 46, 129, 0.8);
+            border-color: #818cf8;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(129, 140, 248, 0.3);
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid rgba(129, 140, 248, 0.3);
+        }
+        .timeline-item.no-border:last-child {
+            border-left: none;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #a78bfa;
+        }
+        .timeline-break::before {
+             background-color: #6ee7b7;
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+        .loader {
+            border: 4px solid #312e81; 
+            border-top: 4px solid #818cf8; 
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-center text-white mb-8">Hackathon Ranks and Pins</h1>
+    </div>
+   <div class="container mx-auto py-8">
+<h1 class="text-4xl font-bold text-center text-white mb-8">Hackathon Management Ranks and Pins</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Admiral -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Admiral</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <rect x="15" y="30" width="70" height="40" rx="5" stroke="#D4AF37" stroke-width="3" fill="#111827" />
+    <circle cx="30" cy="50" r="9"/>
+    <circle cx="50" cy="50" r="9"/>
+    <circle cx="70" cy="50" r="9"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Admiral.</p>
+                <p class="text-gray-400">This role is the highest rank in the hackathon management. There will be no promotion to this role.</p>
+            </div>
+
+        <!--Vice Admiral-->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Vice Admiral</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <rect x="15" y="30" width="70" height="40" rx="5" stroke="#D4AF37" stroke-width="3" fill="#111827" />
+    <circle cx="38" cy="50" r="9"/>
+    <circle cx="62" cy="50" r="9"/>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Deputy Admiral.</p>
+            <p class="text-gray-400">This role is the second highest rank in the hackathon management. There will be no promotion to this role.</p>
+    </div>
+
+        <!-- Chief Engineer -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Chief Engineer</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#D4AF37"/>
+    <g transform="translate(0 -5)" stroke="#111827" stroke-width="6">
+        <path d="M50 49 a 11 11 0 1 0 0.001 0 Z M50 39 L50 32 M50 68 L50 59 M65.2 49 L71 49 M29 49 L34.8 49 M60.8 40.2 L64.9 36.1 M35.1 63.9 L39.2 59.8 M60.8 59.8 L64.9 63.9 M35.1 36.1 L39.2 40.2" fill="none"/>
+        <path d="M50 49 a 3 3 0 1 0 0.001 0 Z" stroke-width="2.5" />
+    </g>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Chief Engineer.</p>
+            <p class="text-gray-400">This role is responsible for overseeing the engineering team and ensuring the successful implementation of technical solutions. There will be no promotion to this role.</p>
+    </div>
+
+     <!-- Communications Officer -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Communications Officer</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#D4AF37"/>
+    <g stroke="#111827" stroke-width="5" fill="none">
+        <path d="M45 40 a 10 10 0 0 1 10 10" />
+        <path d="M45 40 a 20 20 0 0 1 20 20" />
+        <path d="M45 40 a 30 30 0 0 1 30 30" />
+        <circle cx="45" cy="40" r="4" fill="#111827" stroke="none"/>
+    </g>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Communications Officer.</p>
+            <p class="text-gray-400">This role is responsible for managing all communications within the hackathon team and ensuring clear and effective information flow. There will be no promotion to this role.</p>
+    </div>
+
+     <!-- Ambassador -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Ambassador</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#c42d2d"/>
+    <g stroke="#FFFFFF" stroke-width="4.5" fill="none">
+        <path d="M40 58 L52 48 L60 58"/>
+        <path d="M40 48 L48 58 L60 48"/>
+    </g>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Ambassador.</p>
+            <p class="text-gray-400">This role is responsible for representing the hackathon team and building relationships with external stakeholders. There will be no promotion to this role.</p>
+    </div>
+
+    <!-- Judge -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Judge</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#c42d2d" stroke="none"/>
+    <g stroke="white" stroke-width="5" fill="white">
+       <path d="M35 40 L65 40 L65 48 L35 48 Z" />
+       <path d="M47 48 L47 70 L53 70 L53 48 Z" />
+    </g>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Judge.</p>
+                <p class="text-gray-400">This role is responsible for evaluating the hackathon projects and selecting the winners. There will be no promotion to this role.</p>
+            </div>
+</div>
+
+<div class="container mx-auto py-8">
+<h1 class="text-4xl font-bold text-center text-white mb-8">Galactic Archives Participant Ranks and Pins</h1>   
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- Cadet -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Cadet</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" stroke="currentColor" stroke-width="4" fill="none"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Cadet.</p>
+                <p class="text-gray-400">This role is the entry-level rank in the hackathon management.</p>
+            </div>
+        <!-- Ensign -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Ensign</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <circle cx="50" cy="50" r="12" />
+</svg>
+                <p class="text-gray-300 mb-4">Description for Ensign.</p>
+                <p class="text-gray-400">This role is the second-level participant rank. This role will be awarded this title if the participant demonstrates exceptional skills and commitment in the hackathon. 20 available positions for this rank.</p>
+
+</div>
+        <!-- Lieutenant -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Lieutenant</h2>
+                <<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <circle cx="35" cy="50" r="12"/>
+    <circle cx="65" cy="50" r="12"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Lieutenant.</p>
+                <p class="text-gray-400">This role is the third-level participant rank. This role will be awarded this title if the participant demonstrates exceptional skills and commitment in the hackathon. Prerequisite knowledge of the hackathon tools and processes is required; the participant must have been awarded the Ensign rank. 10 available positions for this rank.</p>
+            </div>
+
+        <!-- Lieutenant Commander -->
+            <div class="glass-card      p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Lieutenant Commander</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <circle cx="28" cy="50" r="12"/>
+    <circle cx="50" cy="50" r="12" fill="#111827" stroke="#D4AF37" stroke-width="3"/>
+    <circle cx="72" cy="50" r="12"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Lieutenant Commander.</p>
+                <p class="text-gray-400">This role is the fourth-level participant rank. This role will be awarded this title if the participant demonstrates exceptional skills and commitment in the hackathon. Prerequisite knowledge of the hackathon tools and processes is required; the participant must have been awarded the Lieutenant rank. 5 available positions for this rank.</p>
+            </div>
+
+        <!-- Commander -->
+            <div class="glass-card   p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Commander</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="#D4AF37">
+    <circle cx="28" cy="50" r="12"/>
+    <circle cx="50" cy="50" r="12"/>
+    <circle cx="72" cy="50" r="12"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Commander.</p>
+                <p class="text-gray-400">This role is the fifth-level participant rank. This role will be awarded this title if the participant demonstrates exceptional skills and commitment in the hackathon. Prerequisite knowledge of the hackathon tools and processes is required; the participant must have been awarded the Lieutenant Commander rank. 1 available position for this rank.</p>
+            </div>
+
+             <div class="container mx-auto py-8">
+    
+    </div>
+    </div>
+</div>
+<br>
+    <div class="container mx-auto py-8">
+<h1 class="text-4xl font-bold text-center text-white mb-8">Mentors and Sponsors Ranks and Pins</h1>    
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!--Generic Mentor-->
+        <div class="glass-card p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-white mb-4">Generic Mentor</h2>
+            <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 25 L40 45 C 40 65, 80 65, 80 45 L60 25Z" fill="#3B82F6"/>
+    <path d="M40 55 L20 75 C 20 95, 60 95, 60 75 L40 55Z" fill="#3B82F6"/>
+    <path d="M65 48 C 55 58, 50 65, 45 72" stroke="white" stroke-width="4" fill="none" stroke-dasharray="8, 6"/>
+</svg>
+                <p class="text-gray-300 mb-4">Description for Generic Mentor.</p>
+                <p class="text-gray-400">This role is responsible for guiding and supporting participants throughout the hackathon. There will be no promotion to this role.</p>
+            </div>
+
+        <!-- SME -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Subject Matter Expert</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#3B82F6" stroke="none"/>
+    <path d="M50 35 L52.3 43.2 61.2 45.1 54.6 51.5 56.1 60.3 50 55.8 43.9 60.3 45.4 51.5 38.8 45.1 47.7 43.2 Z" stroke="none" fill="white"/>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Subject Matter Expert.</p>
+            <p class="text-gray-400">This role is responsible for providing expert knowledge and guidance in specific subject areas. There will be no promotion to this role.</p>
+    </div>
+
+        <!-- Sponsor -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Positional Sponsor</h2>
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#c42d2d" stroke="none"/>
+    <circle cx="50" cy="55" r="10" fill="#D4AF37"/>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Positional Sponsor.</p>
+            <p class="text-gray-400">This role is responsible for securing sponsorships and funding for the hackathon. There will be no promotion to this role.</p>
+    </div>
+
+     <!-- Reputational Sponsor -->
+            <div class="glass-card p-6 rounded-lg">
+                <h2 class="text-2xl font-semibold text-white mb-4">Reputational Sponsor</h2>
+               <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 15 L20 45 C 20 75, 80 75, 80 45 L50 15Z" fill="#c42d2d" stroke="none"/>
+    <path d="M50 52 L50 25 M28 48 L10 40 M72 48 L90 40 M20 68 L10 80 M80 68 L90 80" stroke-width="4"/>
+</svg>
+            <p class="text-gray-300 mb-4">Description for Reputational Sponsor.</p>
+            <p class="text-gray-400">This role is responsible for enhancing the reputation of the hackathon and its participants. There will be no promotion to this role.</p>
+    </div>
+
+    
