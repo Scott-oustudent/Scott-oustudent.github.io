@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Galactic Archives - Judges</title>
+    <title>The Galactic Archives - Judging Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,93 +11,117 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-indigo-100">
-    <nav class="my-16">
-        <div class="flex justify-center items-center p-4 glass-card rounded-full max-w-xl mx-auto">
-            <div class="flex space-x-4 text-lg">
-                <a href="./index.html">Home</a>
-                <a href="./rank-pins.html">Rank Pins</a>
-                <a href="./registration.html">Registration</a>
-                <a href="./roles-ranks.html">Roles & Ranks</a>
-                <a href="./judges.html" class="active">Judges</a>
+
+    <header class="text-center py-16 px-4">
+        <h1 class="font-orbitron text-5xl md:text-6xl font-bold uppercase tracking-widest text-white glow-text">Judging Portal</h1>
+        <p class="mt-4 text-xl md:text-2xl text-indigo-300 font-light">Evaluate the Mission Submissions</p>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="glass-card rounded-2xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-white font-orbitron">Project Evaluation</h2>
+                <p class="text-indigo-300 mt-2">Use the sliders to score the project on a scale of 1 to 10 for each category.</p>
             </div>
+
+            <form id="judging-form" class="space-y-8">
+                <div>
+                    <label for="project-name" class="block text-lg font-medium text-indigo-300 mb-2">Project Name / Team Name</label>
+                    <input type="text" id="project-name" name="projectName" required class="form-input w-full px-4 py-2 rounded-lg" placeholder="e.g., Project Nebula">
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="tech-innovation" class="text-lg font-medium text-indigo-300">🚀 Technical Innovation</label>
+                            <span id="tech-innovation-value" class="font-orbitron text-xl text-white bg-indigo-900/50 px-3 py-1 rounded-md">5</span>
+                        </div>
+                        <input type="range" id="tech-innovation" name="techInnovation" min="1" max="10" value="5" class="w-full h-3 bg-indigo-900 rounded-lg appearance-none cursor-pointer range-lg">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="design-ux" class="text-lg font-medium text-indigo-300">🎨 Design & UX</label>
+                            <span id="design-ux-value" class="font-orbitron text-xl text-white bg-indigo-900/50 px-3 py-1 rounded-md">5</span>
+                        </div>
+                        <input type="range" id="design-ux" name="designUx" min="1" max="10" value="5" class="w-full h-3 bg-indigo-900 rounded-lg appearance-none cursor-pointer range-lg">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="theme-adherence" class="text-lg font-medium text-indigo-300">🌌 Theme Adherence</label>
+                            <span id="theme-adherence-value" class="font-orbitron text-xl text-white bg-indigo-900/50 px-3 py-1 rounded-md">5</span>
+                        </div>
+                        <input type="range" id="theme-adherence" name="themeAdherence" min="1" max="10" value="5" class="w-full h-3 bg-indigo-900 rounded-lg appearance-none cursor-pointer range-lg">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="impact-potential" class="text-lg font-medium text-indigo-300">📈 Impact & Potential</label>
+                            <span id="impact-potential-value" class="font-orbitron text-xl text-white bg-indigo-900/50 px-3 py-1 rounded-md">5</span>
+                        </div>
+                        <input type="range" id="impact-potential" name="impactPotential" min="1" max="10" value="5" class="w-full h-3 bg-indigo-900 rounded-lg appearance-none cursor-pointer range-lg">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="comments" class="block text-lg font-medium text-indigo-300 mb-2">General Comments & Feedback</label>
+                    <textarea id="comments" name="comments" rows="4" class="form-input w-full px-4 py-2 rounded-lg" placeholder="Provide constructive feedback for the team..."></textarea>
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit" id="submit-button" class="btn-primary w-full text-white font-bold py-3 px-8 rounded-full text-lg uppercase tracking-wider">
+                        Submit Score
+                    </button>
+                </div>
+            </form>
         </div>
-    </nav>
-
-    <main class="container mx-auto px-4">
-        <section class="mb-16">
-            <h1 class="text-4xl font-bold text-center text-white mb-8 font-orbitron">Meet the Judges</h1>
-            <p class="text-center text-lg text-indigo-300 max-w-3xl mx-auto mb-12">
-                Our panel of esteemed judges brings a wealth of experience from across the tech and space industries. They are tasked with the difficult mission of evaluating your groundbreaking projects and selecting the winners of The Galactic Archives Hackathon.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card p-6 rounded-lg text-center">
-                    <img src="https://via.placeholder.com/150" alt="Judge 1" class="rounded-full w-32 h-32 mx-auto mb-4 border-2 border-indigo-400">
-                    <h2 class="text-2xl font-semibold text-white mb-2">Dr. Aris Thorne</h2>
-                    <h3 class="text-indigo-300 font-orbitron mb-4">Lead AI Ethicist, Starbridge Labs</h3>
-                    <p class="text-gray-400">
-                        A pioneer in neural network design, Dr. Thorne ensures that our journey into the cosmos is guided by responsible and ethical AI.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 rounded-lg text-center">
-                    <img src="https://via.placeholder.com/150" alt="Judge 2" class="rounded-full w-32 h-32 mx-auto mb-4 border-2 border-indigo-400">
-                    <h2 class="text-2xl font-semibold text-white mb-2">Jenna Cygnus</h2>
-                    <h3 class="text-indigo-300 font-orbitron mb-4">Head of Propulsion, Orion Dynamics</h3>
-                    <p class="text-gray-400">
-                        Jenna's work has been instrumental in developing next-generation engines that power deep space exploration. She has a keen eye for innovative engineering.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 rounded-lg text-center">
-                    <img src="https://via.placeholder.com/150" alt="Judge 3" class="rounded-full w-32 h-32 mx-auto mb-4 border-2 border-indigo-400">
-                    <h2 class="text-2xl font-semibold text-white mb-2">Commander Valerius</h2>
-                    <h3 class="text-indigo-300 font-orbitron mb-4">Data Visualization Specialist, ISS</h3>
-                    <p class="text-gray-400">
-                        Having spent over 400 days in orbit, Commander Valerius is an expert at translating complex satellite data into beautiful and intuitive visualizations.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-         <section class="mb-16">
-            <h1 class="text-4xl font-bold text-center text-white mb-8 font-orbitron">Judging Criteria</h1>
-             <div class="max-w-3xl mx-auto glass-card p-8 rounded-lg">
-                 <ul class="space-y-4 text-lg">
-                     <li class="flex items-start">
-                         <span class="text-xl mr-4 text-violet-400">🚀</span>
-                         <div>
-                             <h3 class="font-bold text-white">Technical Innovation</h3>
-                             <p class="text-indigo-200">How creative and technically impressive is the solution? Does it use the provided APIs in a unique and challenging way?</p>
-                         </div>
-                     </li>
-                     <li class="flex items-start">
-                         <span class="text-xl mr-4 text-violet-400">🎨</span>
-                         <div>
-                             <h3 class="font-bold text-white">Design & UX</h3>
-                             <p class="text-indigo-200">Is the project well-designed, intuitive, and enjoyable to use? How effective is the data visualization and storytelling?</p>
-                         </div>
-                     </li>
-                     <li class="flex items-start">
-                         <span class="text-xl mr-4 text-violet-400">🌌</span>
-                         <div>
-                             <h3 class="font-bold text-white">Theme Adherence</h3>
-                             <p class="text-indigo-200">How well does the project align with the "Galactic Archives" theme? Does it contribute to the spirit of space exploration?</p>
-                         </div>
-                     </li>
-                      <li class="flex items-start">
-                         <span class="text-xl mr-4 text-violet-400">📈</span>
-                         <div>
-                             <h3 class="font-bold text-white">Impact & Potential</h3>
-                             <p class="text-indigo-200">What is the potential impact of this project? Could it be a viable product, a useful tool for researchers, or an inspiring piece of art?</p>
-                         </div>
-                     </li>
-                 </ul>
-             </div>
-        </section>
-
     </main>
-     <footer class="text-center py-8 border-t border-indigo-900/50">
-        <p class="text-indigo-400">&copy; 2025 Stellar Command. All rights reserved.</p>
+
+    <footer class="text-center py-8 mt-10 border-t border-indigo-900/50">
+        <p class="text-indigo-400 opacity-70">&copy; 2025 Stellar Command. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = [
+                { input: 'tech-innovation', output: 'tech-innovation-value' },
+                { input: 'design-ux', output: 'design-ux-value' },
+                { input: 'theme-adherence', output: 'theme-adherence-value' },
+                { input: 'impact-potential', output: 'impact-potential-value' }
+            ];
+
+            sliders.forEach(slider => {
+                const inputElement = document.getElementById(slider.input);
+                const outputElement = document.getElementById(slider.output);
+                inputElement.addEventListener('input', () => {
+                    outputElement.textContent = inputElement.value;
+                });
+            });
+
+            const form = document.getElementById('judging-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real application, you would send this data to a server.
+                // For this demo, we'll just log it to the console.
+                const formData = new FormData(form);
+                const scores = {
+                    projectName: formData.get('projectName'),
+                    technicalInnovation: formData.get('techInnovation'),
+                    designAndUx: formData.get('designUx'),
+                    themeAdherence: formData.get('themeAdherence'),
+                    impactAndPotential: formData.get('impactPotential'),
+                    comments: formData.get('comments')
+                };
+                console.log('Submitting Scores:', scores);
+                alert('Score submitted successfully! (Check the console for the data)');
+                form.reset();
+                // Reset slider values visually
+                 sliders.forEach(slider => {
+                    document.getElementById(slider.output).textContent = '5';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
