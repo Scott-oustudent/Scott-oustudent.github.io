@@ -34,7 +34,39 @@
                 </nav>
               
 
-<iframe src="https://registrants-40098b.zapier.app/signup" width="100%" height="600" style="border:none;"></iframe>
+<section class="contact-section">
+  <div class="contact-intro">
+    <h2 class="contact-title">Mission Sign-Up</h2>
+    <p class="contact-description">
+      Secure your place on the mission by filling out the below information.
+    </p>
+  </div>
+
+  <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="8beb21cb-4326-4d6c-9f10-e2098582ccc8" />
+    <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+    <input type="hidden" name="from_name" value="My Website" />
+   
+
+    <div class="form-group-container">
+      <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input id="name" name="name" class="form-input" placeholder="Your full name" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Your Academic Email</label>
+        <input id="email" name="email" class="form-input" placeholder="Please enter he email address from your college or university" type="email" />
+      </div>
+      <div class="form-group">
+        <label for="institute" class="form-label">College or University</label>
+        <input id ="institute" id="institute" name="institute" placeholder="Please enter the name of the college or university you attend here..."></textarea>
+      </div>
+    </div>
+    <button class="form-submit" type="submit">Send Transmission</button>
+  </form>
+
+</section>
 
                 <div id="success-message" class="hidden message-box mt-6 p-4 rounded-lg bg-green-500/20 border border-green-500 text-center">
                     <p class="font-bold">Registration successful!</p>
