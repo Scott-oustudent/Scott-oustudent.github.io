@@ -225,3 +225,102 @@ nav a.active { /* ... */ }
     background-color: #facc15; /* Yellow */
     color: #451a03;
 }
+.miss {
+    text-align: center;
+    font-size: 2rem;
+}
+.info {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.reg-form {
+   display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    gap: 15px; /* Add space between form elements */
+    width: 100%;
+    max-width: 500px; /* Prevents the form from being too wide */
+    text-align: center;
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+}
+/* --- Form Elements Styling --- */
+.form-group {
+    text-align: left; /* Align labels and inputs to the left */
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-size: 1rem;
+    color: #333;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #888;
+}
+
+/* Highlight input on focus for better UX */
+.form-input:focus {
+    outline: none;
+    border-color: #65dfc9;
+    box-shadow: 0 0 0 3px rgba(101, 223, 201, 0.5);
+}
+
+/* --- Button Styling --- */
+.submit-btn {
+    background-color: #6cdbeb;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Add some space above the button */
+}
+
+.submit-btn:hover {
+    background-color: #5ac4d3;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- Optional: Form Text Styling --- */
+.reg-form h2 {
+    margin-top: 0;
+    color: #111;
+}
+
+.reg-form p {
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    align-self: center;
+}
